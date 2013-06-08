@@ -214,6 +214,22 @@ public:
     virtual int getCorrect(const Player *from, const Player *to) const = 0;
 };
 
+class AttackRangeSkill: public Skill{
+    Q_OBJECT
+	Q_ENUMS(ModType)
+
+public:
+	enum ModType {
+        ExtraRange,
+		FilterRange
+    };
+
+	AttackRangeSkill(const QString &name);
+
+	virtual int getExtraRange(const Player *player) const;
+	virtual int filterAttackRange(const Player *player) const;
+};
+
 class MaxCardsSkill: public Skill {
     Q_OBJECT
 
